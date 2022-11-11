@@ -62,10 +62,18 @@ const manageList = (operation) => {
 const list = () => {
   fs.readFile("./Data/notes.json", (err, data) => {
     var obj = JSON.parse(data);
-    var keys = Object.keys(obj);
-    console.log(chalk.black.bgBlueBright.bold("Your Notes:"));
-    for (var i = 0; i < keys.length; i++) {
-      console.log(obj[keys[i]].title);
+    if (obj.length == 0) {
+      console.log(
+        chalk.black.bgYellow.bold(
+          "Nothing is added yet!, Please run 'node app.js available-operations' to know about adding the note"
+        )
+      );
+    } else {
+      var keys = Object.keys(obj);
+      console.log(chalk.black.bgBlueBright.bold("Your Notes:"));
+      for (var i = 0; i < keys.length; i++) {
+        console.log(obj[keys[i]].title);
+      }
     }
   });
 };
@@ -96,10 +104,21 @@ switch (process.argv[2]) {
     break;
   case "available-operations":
     console.log("Use the following operations");
+    console.log();
     console.log("add - to add the note");
+    console.log(
+      "node app.js add --title='titleName' --body='titleDescription'"
+    );
+    console.log();
     console.log("list - to list the notes which is available");
+    console.log("node app.js list");
+    console.log();
     console.log("read - to read the description of single note");
+    console.log("nodepp.js read --title='titleName'");
+    console.log();
     console.log("remove - to remove the note");
+    console.log("node app.js remove --title='titleName'");
+    console.log();
     break;
   default:
     console.log(process.argv[2] + " operation is not found");
