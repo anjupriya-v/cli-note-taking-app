@@ -1,5 +1,12 @@
 # Command Line Note Taking App
 
+### Tech Stack Used:
+- Node.js
+
+### Demo Video
+
+https://user-images.githubusercontent.com/84177086/201301960-dabd80cb-6e73-49d1-96b5-0008e52e7f3d.mp4
+
 ### It performs four Operations
 
 - add - to add the note
@@ -31,17 +38,18 @@ npm install
 node app.js available-operations
 ```
 
+- If you want the list all the notes, use
+
+```
+node app.js list
+```
+
 - If you want to add the note, use
 
 ```
 node app.js add --title="titleName" --body="titleDescription"
 ```
 
-- If you want the list all the notes, use
-
-```
-node app.js list
-```
 
 - If you want to read the description of particular note, use
 
